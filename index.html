@@ -110,6 +110,30 @@ radial-gradient(circle,#2563eb,#0f172a);
 box-shadow:0 0 80px rgba(37,99,235,.5);
 }
 
+.tech-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+max-width:420px;
+}
+
+.tech-item{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.1);
+padding:18px;
+border-radius:14px;
+text-align:center;
+font-weight:600;
+color:#e2e8f0;
+backdrop-filter:blur(10px);
+transition:.3s;
+}
+
+.tech-item:hover{
+transform:translateY(-5px);
+border-color:#60a5fa;
+box-shadow:0 0 20px rgba(96,165,250,.25);
+}
 .section{
 padding:80px 0;
 }
@@ -243,8 +267,9 @@ Data Engineer | Analytics Engineer | BI Engineer
 </div>
 
 <p>
-I design and build scalable data pipelines, analytics platforms,
-cloud data solutions, ETL workflows and business intelligence systems.
+Building scalable data platforms, modern ETL pipelines,
+analytics engineering workflows and cloud-native solutions
+across AWS, GCP and modern data stacks.
 </p>
 
 <p>
@@ -272,7 +297,27 @@ GitHub Profile
 </div>
 
 <div class="hero-graphic">
-<div class="circle"></div>
+
+<div class="tech-grid">
+
+<div class="tech-item">Python</div>
+<div class="tech-item">SQL</div>
+<div class="tech-item">BigQuery</div>
+
+<div class="tech-item">Airflow</div>
+<div class="tech-item">Kafka</div>
+<div class="tech-item">dbt</div>
+
+<div class="tech-item">AWS</div>
+<div class="tech-item">GCP</div>
+<div class="tech-item">Docker</div>
+
+<div class="tech-item">Terraform</div>
+<div class="tech-item">Power BI</div>
+<div class="tech-item">Looker</div>
+
+</div>
+
 </div>
 
 </div>
