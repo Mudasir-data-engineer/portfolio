@@ -77,6 +77,44 @@ font-weight:600;
 transition:.3s;
 }
 
+.cv-dropdown{
+position:relative;
+display:inline-block;
+}
+
+.cv-menu{
+display:none;
+position:absolute;
+top:55px;
+left:0;
+min-width:220px;
+background:#0f172a;
+border:1px solid #334155;
+border-radius:12px;
+overflow:hidden;
+z-index:999;
+}
+
+.cv-menu a{
+display:block;
+padding:12px 16px;
+color:#fff;
+text-decoration:none;
+border-bottom:1px solid #1e293b;
+}
+
+.cv-menu a:last-child{
+border-bottom:none;
+}
+
+.cv-menu a:hover{
+background:#1e293b;
+}
+
+.cv-dropdown:hover .cv-menu{
+display:block;
+}
+
 .btn-primary{
 background:#2563eb;
 color:white;
@@ -340,17 +378,26 @@ complex data challenges into measurable business outcomes.
 View Case Studies
 </a>
 
-<a class="btn btn-secondary"
-href="resume/Data%20Engr%20CV_Eng.pdf"
-target="_blank">
-Download Resume
+<div class="cv-dropdown">
+
+<a class="btn btn-secondary" href="#">
+Curriculum Vitae ▼
 </a>
 
-<a class="btn btn-secondary"
-href="resume/Data%20Engr_CV_Fr.pdf"
-target="_blank">
-CV Français
+<div class="cv-menu">
+
+<a href="resume/Data%20Engr%20CV_Eng.pdf" target="_blank">
+🇬🇧 English Version
 </a>
+
+<a href="resume/Data%20Engr_CV_Fr.pdf" target="_blank">
+🇫🇷 French Version
+</a>
+
+</div>
+
+</div>
+
 
 <a class="btn btn-secondary"
 href="https://github.com/Mudasir-data-engineer"
