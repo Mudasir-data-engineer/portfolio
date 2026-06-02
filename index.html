@@ -25,7 +25,13 @@ body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;lin
 #canvas{position:fixed;inset:0;z-index:0;pointer-events:none;}
 
 /* NAV */
-nav{position:sticky;top:0;z-index:1000;background:rgba(2,6,15,0.88);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
+nav{
+  position:sticky;top:0;z-index:1000;
+  background:linear-gradient(180deg,rgba(8,6,20,0.97) 0%,rgba(12,8,28,0.95) 100%);
+  backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);
+  border-bottom:1px solid rgba(226,185,111,0.15);
+  box-shadow:0 1px 32px rgba(0,0,0,0.5),0 0 0 1px rgba(226,185,111,0.06);
+}
 .nav-in{max-width:1220px;margin:auto;padding:0 44px;height:62px;display:flex;align-items:center;justify-content:space-between;}
 .logo{font-family:'Fraunces',serif;font-size:20px;font-weight:600;color:var(--text);}
 .logo em{color:var(--gold);font-style:italic;}
@@ -131,11 +137,27 @@ nav{position:sticky;top:0;z-index:1000;background:rgba(2,6,15,0.88);backdrop-fil
 .btn-g:hover{border-color:rgba(226,185,111,0.4);background:rgba(226,185,111,0.05);transform:translateY(-2px);}
 
 .cvw{position:relative;}
-.cvd{display:none;position:absolute;top:calc(100% + 10px);left:0;min-width:205px;background:rgba(4,12,26,0.97);border:1px solid var(--border);border-radius:12px;overflow:hidden;z-index:99;backdrop-filter:blur(16px);}
+.cvd{
+  display:none;
+  position:fixed;
+  top:auto;
+  left:auto;
+  min-width:220px;
+  background:rgba(6,4,18,0.98);
+  border:1px solid rgba(226,185,111,0.2);
+  border-radius:14px;
+  overflow:visible;
+  z-index:9999;
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+  box-shadow:0 16px 48px rgba(0,0,0,0.6),0 0 0 1px rgba(226,185,111,0.08);
+  margin-top:8px;
+}
 .cvd a{display:flex;align-items:center;gap:9px;padding:12px 15px;color:var(--text);text-decoration:none;font-size:13.5px;border-bottom:1px solid var(--border);transition:.2s;}
 .cvd a:last-child{border-bottom:none;}
 .cvd a:hover{background:rgba(226,185,111,0.08);color:var(--gold);}
-.cvw:hover .cvd{display:block;}
+.cvw.open .cvd{display:block;}
+/* dropdown via JS */
 
 .socials{display:flex;gap:18px;}
 .socials a{color:var(--text3);text-decoration:none;font-size:12.5px;transition:.2s;display:flex;align-items:center;gap:5px;}
@@ -618,6 +640,31 @@ const sObs=new IntersectionObserver(entries=>{
   });
 },{threshold:.15});
 document.querySelectorAll('.skills-grid').forEach(el=>sObs.observe(el));
+
+// CV DROPDOWN POSITIONING - fix overlap with ticker
+document.querySelectorAll('.cvw').forEach(function(wrap) {
+  var btn = wrap.querySelector('.btn-g');
+  var drop = wrap.querySelector('.cvd');
+  if (!btn || !drop) return;
+
+  function openDrop() {
+    var rect = btn.getBoundingClientRect();
+    drop.style.top = (rect.bottom + 8) + 'px';
+    drop.style.left = rect.left + 'px';
+    drop.style.display = 'block';
+  }
+  function closeDrop() {
+    drop.style.display = 'none';
+  }
+
+  btn.addEventListener('mouseenter', openDrop);
+  wrap.addEventListener('mouseleave', function() {
+    setTimeout(function() {
+      if (!drop.matches(':hover')) closeDrop();
+    }, 80);
+  });
+  drop.addEventListener('mouseleave', closeDrop);
+});
 </script>
 
 </body>
