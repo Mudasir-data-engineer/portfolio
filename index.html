@@ -32,7 +32,11 @@ nav{
   border-bottom:1px solid rgba(226,185,111,0.15);
   box-shadow:0 1px 32px rgba(0,0,0,0.5),0 0 0 1px rgba(226,185,111,0.06);
 }
-.nav-in{max-width:1220px;margin:auto;padding:0 44px;height:62px;display:flex;align-items:center;justify-content:space-between;}
+.nav-in{
+  max-width:1440px;margin:auto;padding:0 32px;
+  height:56px;display:flex;align-items:center;
+  justify-content:space-between;gap:20px;overflow:hidden;
+}
 .logo{font-family:'Fraunces',serif;font-size:20px;font-weight:600;color:var(--text);}
 .logo em{color:var(--gold);font-style:italic;}
 .nav-links{display:flex;gap:30px;align-items:center;}
@@ -41,7 +45,7 @@ nav{
 .nav-links a:hover{color:var(--text);}
 .nav-links a:hover::after{width:100%;}
 
-.wrap{max-width:1220px;margin:auto;padding:0 44px;position:relative;z-index:1;}
+.wrap{max-width:1220px;margin:auto;padding:0 44px;position:relative;z-index:0;}
 
 /* ── HERO ── */
 .hero{
@@ -49,6 +53,7 @@ nav{
   display:flex;align-items:flex-end;
   padding:0 0 60px;
   position:relative;
+  z-index:2;
 }
 .hero-inner{
   max-width:1440px;
@@ -140,18 +145,14 @@ nav{
 .cvd{
   display:none;
   position:fixed;
-  top:auto;
-  left:auto;
+  z-index:99999;
   min-width:220px;
   background:rgba(6,4,18,0.98);
-  border:1px solid rgba(226,185,111,0.2);
+  border:1px solid rgba(226,185,111,0.25);
   border-radius:14px;
-  overflow:visible;
-  z-index:9999;
+  box-shadow:0 20px 60px rgba(0,0,0,0.7),0 0 0 1px rgba(226,185,111,0.1);
   backdrop-filter:blur(24px);
   -webkit-backdrop-filter:blur(24px);
-  box-shadow:0 16px 48px rgba(0,0,0,0.6),0 0 0 1px rgba(226,185,111,0.08);
-  margin-top:8px;
 }
 .cvd a{display:flex;align-items:center;gap:9px;padding:12px 15px;color:var(--text);text-decoration:none;font-size:13.5px;border-bottom:1px solid var(--border);transition:.2s;}
 .cvd a:last-child{border-bottom:none;}
@@ -171,7 +172,7 @@ nav{
   border-top:1px solid var(--border);
   border-bottom:1px solid var(--border);
   padding:14px 0;overflow:hidden;
-  position:relative;z-index:1;
+  position:relative;z-index:0;
 }
 .ticker-track{
   display:flex;gap:0;
@@ -269,7 +270,7 @@ section.blk{padding:88px 0;}
 .open-pill{display:inline-flex;align-items:center;gap:7px;background:rgba(77,217,192,0.07);border:1px solid rgba(77,217,192,0.2);padding:7px 14px;border-radius:999px;font-size:12px;color:var(--teal);font-weight:600;margin-top:20px;}
 .open-dot{width:5px;height:5px;background:var(--teal);border-radius:50%;animation:blink 2s ease-in-out infinite;}
 
-footer{border-top:1px solid var(--border);padding:34px 0;text-align:center;color:var(--text3);font-size:12.5px;position:relative;z-index:1;}
+footer{border-top:1px solid var(--border);padding:34px 0;text-align:center;color:var(--text3);font-size:12.5px;position:relative;z-index:0;}
 footer a{color:var(--gold);text-decoration:none;}
 
 /* RESPONSIVE */
@@ -290,6 +291,81 @@ footer a{color:var(--gold);text-decoration:none;}
   .vol-grid{grid-template-columns:1fr;}
   .hero-big .line1,.hero-big .line2,.hero-big .line-accent{letter-spacing:-1.5px;}
 }
+
+/* ── REPORT CARDS ── */
+.rg{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px;}
+.rc{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:18px;padding:28px;
+  transition:.35s;position:relative;overflow:hidden;
+  opacity:0;transform:translateY(28px);
+}
+.rc.vis{opacity:1;transform:translateY(0);transition:opacity .55s ease,transform .55s ease,border-color .3s,box-shadow .3s;}
+.rc::after{content:'';position:absolute;top:0;left:0;right:0;height:1.5px;background:linear-gradient(90deg,var(--gold),var(--gold2));opacity:0;transition:.3s;}
+.rc:hover{transform:translateY(-7px) !important;border-color:rgba(226,185,111,0.3);box-shadow:0 18px 50px rgba(0,0,0,0.45);}
+.rc:hover::after{opacity:1;}
+#looker .rc::after{background:linear-gradient(90deg,var(--teal),#60a5fa);}
+#looker .rc:hover{border-color:rgba(77,217,192,0.3);}
+.rc-top{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.rc-tag{
+  font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  padding:4px 10px;border-radius:6px;
+  background:rgba(226,185,111,0.1);
+  border:1px solid rgba(226,185,111,0.2);
+  color:var(--gold);
+}
+.rc-tag-teal{
+  background:rgba(77,217,192,0.1);
+  border:1px solid rgba(77,217,192,0.2);
+  color:var(--teal);
+}
+.rc-cat{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text3);}
+.rc h3{font-family:'Fraunces',serif;font-size:18px;font-weight:600;font-style:italic;margin-bottom:10px;color:var(--text);line-height:1.3;}
+.rc p{font-size:13.5px;color:var(--text2);line-height:1.72;margin-bottom:18px;}
+.rc-metrics{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:20px;padding:14px;background:rgba(255,255,255,0.02);border-radius:10px;border:1px solid var(--border);}
+.rc-met{display:flex;flex-direction:column;gap:3px;}
+.rc-met span{font-family:'Fraunces',serif;font-size:18px;font-weight:600;font-style:italic;color:var(--gold);line-height:1;}
+#looker .rc-met span{color:var(--teal);}
+.rc-met{font-size:11px;color:var(--text3);letter-spacing:.5px;}
+
+
+/* ── TABS ── */
+.tab-bar{
+  display:flex;gap:0;margin-bottom:36px;
+  border:1px solid var(--border);border-radius:14px;
+  overflow:hidden;background:var(--bg2);
+  width:fit-content;
+}
+.tab-btn{
+  display:flex;align-items:center;gap:10px;
+  padding:14px 28px;
+  background:transparent;border:none;
+  color:var(--text2);font-family:'Manrope',sans-serif;
+  font-size:13px;font-weight:700;letter-spacing:.5px;
+  cursor:pointer;transition:.25s;
+  border-right:1px solid var(--border);
+}
+.tab-btn:last-child{border-right:none;}
+.tab-btn .tab-icon{font-size:11px;opacity:.5;}
+.tab-btn .tab-count{
+  font-size:10px;font-weight:600;letter-spacing:1px;
+  padding:2px 8px;border-radius:999px;
+  background:rgba(255,255,255,0.06);color:var(--text3);
+  transition:.25s;
+}
+.tab-btn.active{background:rgba(226,185,111,0.08);color:var(--gold);}
+.tab-btn.active .tab-count{background:rgba(226,185,111,0.15);color:var(--gold);}
+.tab-btn[data-tab="looker"].active{background:rgba(77,217,192,0.08);color:var(--teal);}
+.tab-btn[data-tab="looker"].active .tab-count{background:rgba(77,217,192,0.12);color:var(--teal);}
+.tab-pane{display:none;}
+.tab-pane.active{display:block;}
+/* teal card variants */
+.rc-teal::after{background:linear-gradient(90deg,var(--teal),#60a5fa) !important;}
+.rc-teal:hover{border-color:rgba(77,217,192,0.3) !important;}
+.rc-teal .rc-met span{color:var(--teal) !important;}
+.plink-teal{color:var(--teal) !important;}
+.plink-teal:hover{color:#7ff0e0 !important;}
+
 </style>
 </head>
 <body>
@@ -302,6 +378,7 @@ footer a{color:var(--gold);text-decoration:none;}
     <div class="nav-links">
       <a href="#stack">Stack</a>
       <a href="#projects">Projects</a>
+      <a href="#analyst">BI Reports</a>
       <a href="#about">About</a>
       <a href="https://github.com/Mudasir-data-engineer" target="_blank">GitHub</a>
       <a href="mailto:chmudasir.fr@gmail.com">Contact</a>
@@ -525,6 +602,180 @@ footer a{color:var(--gold);text-decoration:none;}
   </div>
 </section>
 
+
+
+<!-- DATA ANALYST SECTION -->
+<section class="blk" id="analyst">
+  <div class="wrap">
+    <div class="sh">
+      <div class="slbl">Data Analytics</div>
+      <h2 class="stitle">BI Reports</h2>
+      <p class="ssub">Production dashboards and analytics reports built across Power BI and Looker Studio — connecting raw data to measurable business outcomes.</p>
+    </div>
+
+    <!-- TABS -->
+    <div class="tab-bar">
+      <button class="tab-btn active" data-tab="powerbi">
+        <span class="tab-icon">&#9646;&#9646;&#9646;</span>
+        Power BI
+        <span class="tab-count">6 Reports</span>
+      </button>
+      <button class="tab-btn" data-tab="looker">
+        <span class="tab-icon">&#9650;</span>
+        Looker Studio
+        <span class="tab-count">5 Reports</span>
+      </button>
+    </div>
+
+    <!-- POWER BI TAB -->
+    <div class="tab-pane active" id="tab-powerbi">
+      <div class="rg">
+
+        <div class="rc">
+          <div class="rc-top"><div class="rc-tag">Power BI</div><div class="rc-cat">Survey Analytics</div></div>
+          <h3>Data Professional Survey Breakdown</h3>
+          <p>Analyzed responses from 630 data professionals worldwide. Visualized salary distribution by job title, favorite programming languages (Python led at 67%), work-life balance scores, and difficulty to break into data — across the US, India, UK and Canada.</p>
+          <div class="rc-metrics">
+            <div class="rc-met"><span>630</span>Respondents</div>
+            <div class="rc-met"><span>5+</span>Chart Types</div>
+            <div class="rc-met"><span>$0K–$100K</span>Salary Range</div>
+          </div>
+          <a class="plink" href="case-studies/Data_Survey_Project.pdf" target="_blank">View Report</a>
+        </div>
+
+        <div class="rc">
+          <div class="rc-top"><div class="rc-tag">Power BI</div><div class="rc-cat">Sales Dashboard</div></div>
+          <h3>Sales Dashboard — Super Store</h3>
+          <p>Built a comprehensive sales intelligence dashboard covering 8,399 orders, $14.65M total sales and $1.52M profit. Region-wise profit across 10 Canadian provinces, category-wise sales (Technology $6M leading), top 10 customer rankings and shipping cost analysis.</p>
+          <div class="rc-metrics">
+            <div class="rc-met"><span>$14.65M</span>Total Sales</div>
+            <div class="rc-met"><span>8,399</span>Orders</div>
+            <div class="rc-met"><span>10</span>Regions</div>
+          </div>
+          <a class="plink" href="case-studies/Sales_Dashboard.pdf" target="_blank">View Report</a>
+        </div>
+
+        <div class="rc">
+          <div class="rc-top"><div class="rc-tag">Power BI</div><div class="rc-cat">Multi-Channel Marketing</div></div>
+          <h3>Power BI Marketing Intelligence Suite</h3>
+          <p>Multi-page marketing analytics report covering GA4 traffic (3M visits, $27.28M budget tracked), social media dashboard across Facebook, Google, Instagram and LinkedIn, email performance (10% open rate, 0.2% click rate), and booking funnel with 28K total bookings at 1.9% conversion rate.</p>
+          <div class="rc-metrics">
+            <div class="rc-met"><span>3M</span>Total Visits</div>
+            <div class="rc-met"><span>28K</span>Bookings</div>
+            <div class="rc-met"><span>6</span>Channels</div>
+          </div>
+          <a class="plink" href="case-studies/Power_Bi_Marketing_Project.pdf" target="_blank">View Report</a>
+        </div>
+
+        <div class="rc">
+          <div class="rc-top"><div class="rc-tag">Power BI</div><div class="rc-cat">Web Analytics</div></div>
+          <h3>SlotR — GA4 Traffic Report</h3>
+          <p>GA4 data visualization dashboard for SlotR covering Sep 2023–Feb 2024. Tracked active users, session duration, bounce rate (0.17) and traffic source breakdown — organic, referral, email and direct. Segmented by month with device category and full event funnel including Page View, Scroll and Purchase events.</p>
+          <div class="rc-metrics">
+            <div class="rc-met"><span>6</span>Months Tracked</div>
+            <div class="rc-met"><span>0.17</span>Avg Bounce Rate</div>
+            <div class="rc-met"><span>4</span>Traffic Sources</div>
+          </div>
+          <a class="plink" href="case-studies/SlotR_GA4_Report.pdf" target="_blank">View Report</a>
+        </div>
+
+        <div class="rc">
+          <div class="rc-top"><div class="rc-tag">Power BI</div><div class="rc-cat">E-Commerce Analytics + BigQuery</div></div>
+          <h3>The Gallery — BigQuery GA4 Dashboard</h3>
+          <p>Full GA4 analytics pipeline for The Gallery art platform, powered by Google BigQuery. Tracked 734 total visitors, 732 active users, 00:03:24 avg engagement time. Analyzed session sources (LinkTree 283, Direct 161, Google 89), France leading with 574 active users, artist page visits and 122 select-item events.</p>
+          <div class="rc-metrics">
+            <div class="rc-met"><span>734</span>Total Visitors</div>
+            <div class="rc-met"><span>00:03:24</span>Avg Engagement</div>
+            <div class="rc-met"><span>BigQuery</span>Data Source</div>
+          </div>
+          <a class="plink" href="case-studies/The_Gallery_Dashboard__Google_Big_Query_.pdf" target="_blank">View Report</a>
+        </div>
+
+        <div class="rc">
+          <div class="rc-top"><div class="rc-tag">Power BI</div><div class="rc-cat">Retail Sales Analytics</div></div>
+          <h3>Super Store — Data Analysis Report</h3>
+          <p>Extended retail analytics covering full customer segmentation, product-level profitability and shipping cost optimization across the Super Store dataset. Built interactive slicers for region, category and customer segment with trend analysis across multiple fiscal periods.</p>
+          <div class="rc-metrics">
+            <div class="rc-met"><span>$1.52M</span>Total Profit</div>
+            <div class="rc-met"><span>795</span>Customers</div>
+            <div class="rc-met"><span>572</span>Returns Tracked</div>
+          </div>
+          <a class="plink" href="case-studies/Super_Store_Project.pdf" target="_blank">View Report</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- LOOKER STUDIO TAB -->
+    <div class="tab-pane" id="tab-looker">
+      <div class="rg">
+
+        <div class="rc rc-teal">
+          <div class="rc-top"><div class="rc-tag rc-tag-teal">Looker Studio</div><div class="rc-cat">App Analytics</div></div>
+          <h3>Synthetic Data Report — User Acquisition &amp; Revenue</h3>
+          <p>Built a synthetic analytics report simulating a live app platform with 191K registered users, 208K installs and $515K donations. Tracked CAC ($0.88), donor conversion rate, wish fulfillment (249 of 11,573 created), and revenue streams across donation fees ($51K) and wish boosting ($69K) over an 18-month window.</p>
+          <div class="rc-metrics">
+            <div class="rc-met"><span>191K</span>Registered Users</div>
+            <div class="rc-met"><span>$121K</span>Total Revenue</div>
+            <div class="rc-met"><span>$0.88</span>CAC</div>
+          </div>
+          <a class="plink plink-teal" href="case-studies/Synthetic_Data_Report.pdf" target="_blank">View Report</a>
+        </div>
+
+        <div class="rc rc-teal">
+          <div class="rc-top"><div class="rc-tag rc-tag-teal">Looker Studio</div><div class="rc-cat">Paid Advertising</div></div>
+          <h3>FC — Google Ads Performance Overview</h3>
+          <p>Google Ads reporting dashboard tracking 10.3K clicks (+43%), 958K impressions and 1.1% CTR over a 4-week window. Visualized campaign-level CTR (top campaign 39.44%), CPC trends ($1.83 avg), 83 conversions at 0.1% conv rate, and $18.89K total cost with landing page purchase attribution across 200+ campaigns.</p>
+          <div class="rc-metrics">
+            <div class="rc-met"><span>10.3K</span>Clicks</div>
+            <div class="rc-met"><span>958K</span>Impressions</div>
+            <div class="rc-met"><span>$18.89K</span>Ad Spend</div>
+          </div>
+          <a class="plink plink-teal" href="case-studies/FC_-_Google_Ads_Overview_Report.pdf" target="_blank">View Report</a>
+        </div>
+
+        <div class="rc rc-teal">
+          <div class="rc-top"><div class="rc-tag rc-tag-teal">Looker Studio</div><div class="rc-cat">E-Commerce Analytics</div></div>
+          <h3>Amazon.com — WestPoint Annual Analysis</h3>
+          <p>Year-over-year sales analysis for WestPoint on Amazon. Reported 142% yearly growth and 143% August growth. Identified top 5 product patterns — Face Mask SKU led with 114K units sold. Broke down 7 product lines with Blankets &amp; Throws at $775K (29.5% of total) as the dominant category.</p>
+          <div class="rc-metrics">
+            <div class="rc-met"><span>142%</span>Yearly Growth</div>
+            <div class="rc-met"><span>$775K</span>Top Category</div>
+            <div class="rc-met"><span>7</span>Product Lines</div>
+          </div>
+          <a class="plink plink-teal" href="case-studies/Amazon_com_-_Analysis_Report_-_V2.pdf" target="_blank">View Report</a>
+        </div>
+
+        <div class="rc rc-teal">
+          <div class="rc-top"><div class="rc-tag rc-tag-teal">Looker Studio</div><div class="rc-cat">Retail Sales Analytics</div></div>
+          <h3>The Home Depot — WestPoint Sales Report</h3>
+          <p>Monthly sales growth analysis for WestPoint Home on The Home Depot platform. Reported 33% month-on-month growth. Category breakdown across Blankets ($19,360 — 47.25%), Towels ($10,345 — 25.25%) and Sheets ($10,171 — 24.82%) with comparative bar chart visualization.</p>
+          <div class="rc-metrics">
+            <div class="rc-met"><span>33%</span>Monthly Growth</div>
+            <div class="rc-met"><span>$39.8K</span>Total Sales</div>
+            <div class="rc-met"><span>3</span>Categories</div>
+          </div>
+          <a class="plink plink-teal" href="case-studies/Home_Depot_Analysis_Report_-_V4.pdf" target="_blank">View Report</a>
+        </div>
+
+        <div class="rc rc-teal">
+          <div class="rc-top"><div class="rc-tag rc-tag-teal">Looker Studio</div><div class="rc-cat">Social Media Analytics</div></div>
+          <h3>Healthpass — Facebook Health Report May 2020</h3>
+          <p>Facebook performance dashboard for Healthpass.pk covering April–May 2020. Tracked 6.5M+ paid impressions, 63K+ organic impressions, 123K post engagements across 28 campaign posts. Segmented paid vs organic reach with daily trend analysis and post-level engagement breakdown.</p>
+          <div class="rc-metrics">
+            <div class="rc-met"><span>6.5M+</span>Paid Impressions</div>
+            <div class="rc-met"><span>123K</span>Engagements</div>
+            <div class="rc-met"><span>28</span>Campaign Posts</div>
+          </div>
+          <a class="plink plink-teal" href="case-studies/Healthpass__-_Health_Report_May_2020.pdf" target="_blank">View Report</a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- ABOUT -->
 <section class="blk" id="about">
   <div class="wrap">
@@ -622,7 +873,7 @@ const fObs=new IntersectionObserver(entries=>{
     }
   });
 },{threshold:.08});
-document.querySelectorAll('.sc,.pc').forEach(el=>fObs.observe(el));
+document.querySelectorAll('.sc,.pc,.rc').forEach(el=>fObs.observe(el));
 
 // SKILL BARS
 const sObs=new IntersectionObserver(entries=>{
@@ -665,6 +916,30 @@ document.querySelectorAll('.cvw').forEach(function(wrap) {
   });
   drop.addEventListener('mouseleave', closeDrop);
 });
+
+// TABS
+document.querySelectorAll('.tab-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var tab = btn.dataset.tab;
+    document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+    document.querySelectorAll('.tab-pane').forEach(function(p){ p.classList.remove('active'); });
+    btn.classList.add('active');
+    var pane = document.getElementById('tab-'+tab);
+    if(pane){
+      pane.classList.add('active');
+      // animate cards
+      pane.querySelectorAll('.rc').forEach(function(c,i){
+        c.classList.remove('vis');
+        setTimeout(function(){ c.classList.add('vis'); }, i*80);
+      });
+    }
+  });
+});
+// Init first tab cards
+document.querySelectorAll('#tab-powerbi .rc').forEach(function(c,i){
+  setTimeout(function(){ c.classList.add('vis'); }, i*80+300);
+});
+
 </script>
 
 </body>
