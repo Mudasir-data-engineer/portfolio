@@ -262,6 +262,18 @@ section.blk{padding:88px 0;}
 .plink:hover{gap:10px;color:var(--gold2);}
 .plink::after{content:"\2192";}
 
+.agent-tag {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 6px;
+  background: rgba(226,185,111,0.07);
+  border: 1px solid rgba(226,185,111,0.18);
+  color: var(--gold);
+}
+
 /* ABOUT */
 .ag{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
 .ab{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:36px;}
@@ -379,6 +391,7 @@ footer a{color:var(--gold);text-decoration:none;}
       <a href="#stack">Stack</a>
       <a href="#projects">Projects</a>
       <a href="#analyst">BI Reports</a>
+      <a href="#agents">AI Agents</a>
       <a href="#about">About</a>
       <a href="https://github.com/Mudasir-data-engineer" target="_blank">GitHub</a>
       <a href="mailto:chmudasir.fr@gmail.com">Contact</a>
@@ -602,7 +615,91 @@ footer a{color:var(--gold);text-decoration:none;}
   </div>
 </section>
 
+<!-- AI AGENTS SECTION -->
+<section class="blk" id="agents" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh">
+      <div class="slbl">Automation</div>
+      <h2 class="stitle">AI Agent Workflows</h2>
+      <p class="ssub">Production-ready AI agents built with n8n, OpenAI, local LLMs and AWS — automating customer support, lead qualification, ecommerce reporting and restaurant ordering end-to-end.</p>
+    </div>
+    <div class="pg">
 
+      <div class="pc">
+        <div class="pnum">01 / AI AGENT</div>
+        <h3>AI Customer Support Agent</h3>
+        <p>Intent-driven routing pipeline using Llama 3.2 via Ollama and n8n. Classifies inbound messages into REFUND, ORDER_STATUS, COMPLAINT or GENERAL and dispatches auto-responses via Switch node — zero human triage for tier-1 support.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px;">
+          <span class="agent-tag">n8n</span>
+          <span class="agent-tag">Ollama</span>
+          <span class="agent-tag">Llama 3.2</span>
+          <span class="agent-tag">Docker</span>
+          <span class="agent-tag">Switch Node</span>
+        </div>
+        <a class="plink" href="case-studies/AI_Customer_Support_Case_Study.pdf" target="_blank">Read Case Study</a>
+      </div>
+
+      <div class="pc">
+        <div class="pnum">02 / AI AGENT</div>
+        <h3>WhatsApp Customer Support Agent</h3>
+        <p>Webhook-triggered n8n workflow that identifies intent via GPT-4o, queries a knowledge base for grounded responses, and delivers answers in seconds. Smart escalation logic routes low-confidence queries to live agents with full conversation context.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px;">
+          <span class="agent-tag">n8n</span>
+          <span class="agent-tag">OpenAI GPT-4o</span>
+          <span class="agent-tag">WhatsApp API</span>
+          <span class="agent-tag">Knowledge Base</span>
+          <span class="agent-tag">Webhook</span>
+        </div>
+        <a class="plink" href="case-studies/WhatsApp_Customer_Support_Case_Study.pdf" target="_blank">Read Case Study</a>
+      </div>
+
+      <div class="pc">
+        <div class="pnum">03 / AI AGENT</div>
+        <h3>AI Lead Qualification Agent</h3>
+        <p>Automated B2B lead scoring using the BANT framework. GPT-4o returns structured JSON (Hot / Warm / Cold), a Switch node routes to CRM entry and tiered email notification — eliminating manual triage entirely.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px;">
+          <span class="agent-tag">n8n</span>
+          <span class="agent-tag">OpenAI API</span>
+          <span class="agent-tag">Google Sheets</span>
+          <span class="agent-tag">CRM</span>
+          <span class="agent-tag">Email</span>
+        </div>
+        <a class="plink" href="case-studies/AI_Lead_Qualification_Case_Study.pdf" target="_blank">Read Case Study</a>
+      </div>
+
+      <div class="pc">
+        <div class="pnum">04 / AI AGENT</div>
+        <h3>AI Ecommerce Reporting Agent</h3>
+        <p>Dual-stage AI pipeline: Stage 1 GPT-4o generates an executive KPI report (Revenue, AOV, ROAS, Refund Rate). Stage 2 classifies business health as HEALTHY, WARNING or CRITICAL and auto-routes to the correct business action.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px;">
+          <span class="agent-tag">n8n</span>
+          <span class="agent-tag">OpenAI API</span>
+          <span class="agent-tag">Shopify API</span>
+          <span class="agent-tag">Dual-Stage AI</span>
+          <span class="agent-tag">Email</span>
+        </div>
+        <a class="plink" href="case-studies/AI_Ecommerce_Reporting_Case_Study.pdf" target="_blank">Read Case Study</a>
+      </div>
+
+      <div class="pc">
+        <div class="pnum">05 / AI AGENT</div>
+        <h3>RestaurantX AI Ordering System</h3>
+        <p>Full-stack restaurant ordering platform built on AWS. Every table has a tablet running a chatbot — customers order by voice or text, pay by card, and receive an audio confirmation. Sentiment analysis adapts the chatbot tone in real time. Orders reach the kitchen only after payment clears.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px;">
+          <span class="agent-tag">Amazon Lex</span>
+          <span class="agent-tag">AWS Lambda</span>
+          <span class="agent-tag">Comprehend</span>
+          <span class="agent-tag">Amazon Polly</span>
+          <span class="agent-tag">S3</span>
+        </div>
+        <a class="plink" href="case-studies/RestaurantX_AI_Ordering_Case_Study.pdf" target="_blank">Read Case Study</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  
 
 <!-- DATA ANALYST SECTION -->
 <section class="blk" id="analyst">
