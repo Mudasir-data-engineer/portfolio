@@ -39,6 +39,7 @@ nav{
 }
 .logo{font-family:'Fraunces',serif;font-size:20px;font-weight:600;color:var(--text);}
 .logo em{color:var(--gold);font-style:italic;}
+.nav-name{font-size:14px;font-weight:500;white-space:nowrap;flex-shrink:0;}
 .nav-links{display:flex;gap:30px;align-items:center;}
 .nav-links a{color:var(--text2);text-decoration:none;font-size:13.5px;font-weight:500;letter-spacing:.3px;transition:color .2s;position:relative;}
 .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--gold);transition:width .3s;}
@@ -79,7 +80,7 @@ nav{
 .hero-big .line1,
 .hero-big .line2{
   display:block;
-  font-size:clamp(20px,13vw,200px);
+  font-size:clamp(70px,13vw,200px);
   color:var(--text);
   text-transform:uppercase;
 }
@@ -128,6 +129,7 @@ nav{
   display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;
 }
 .hero-cta-group{display:flex;gap:11px;align-items:center;flex-wrap:wrap;}
+.hero-badges{display:flex;flex-wrap:wrap;gap:7px;max-width:100%;}
 
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:.25;}}
 
@@ -300,8 +302,22 @@ footer a{color:var(--gold);text-decoration:none;}
   .skills-grid{grid-template-columns:1fr;}
 }
 @media(max-width:600px){
+  .nav-in{height:58px;padding:0 14px;gap:14px;}
+  .nav-name{font-size:13px;line-height:1.2;}
+  .nav-role{display:none;}
+  .nav-links{flex:1;gap:18px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+  .nav-links::-webkit-scrollbar{display:none;}
+  .nav-links a{font-size:12px;white-space:nowrap;}
+  .hero{min-height:auto;padding:72px 0 42px;align-items:flex-start;}
+  .hero-tag{margin-top:38px;margin-bottom:20px;}
   .vol-grid{grid-template-columns:1fr;}
   .hero-big .line1,.hero-big .line2,.hero-big .line-accent{letter-spacing:-1.5px;}
+  .hero-sub,.hero-contact-block{width:100%;max-width:100%;}
+  .hero-location{line-height:1.6;}
+  .hero-cta-group{width:100%;}
+  .hero-badges{width:100%;}
+  .pg,.rg,.stack-g{grid-template-columns:minmax(0,1fr);}
+  .pc,.rc,.sc,.ab{padding:24px 20px;}
 }
 
 /* ── REPORT CARDS ── */
@@ -378,6 +394,14 @@ footer a{color:var(--gold);text-decoration:none;}
 .plink-teal{color:var(--teal) !important;}
 .plink-teal:hover{color:#7ff0e0 !important;}
 
+@media(max-width:600px){
+  .rg{grid-template-columns:minmax(0,1fr);}
+  .rc{min-width:0;padding:24px 20px;}
+  .tab-bar{width:100%;}
+  .tab-btn{flex:1;justify-content:center;padding:12px 10px;white-space:nowrap;}
+  .tab-btn .tab-count{display:none;}
+}
+
 </style>
 </head>
 <body>
@@ -386,7 +410,7 @@ footer a{color:var(--gold);text-decoration:none;}
 
 <nav>
   <div class="nav-in">
-    <div class="nav-name">MUDASIR SHAFIQ &mdash; DATA &amp; AI ENGINEER</div>
+    <div class="nav-name"><span>MUDASIR SHAFIQ</span><span class="nav-role"> &mdash; DATA &amp; AI ENGINEER</span></div>
     <div class="nav-links">
       <a href="#stack">Stack</a>
       <a href="#projects">Projects</a>
@@ -421,7 +445,7 @@ footer a{color:var(--gold);text-decoration:none;}
         <div class="cvw">
           <a class="btn-g" href="#">Curriculum Vitae &#9662;</a>
           <div class="cvd">
-            <a href="resume/Data%20Engr%20CV_Eng.pdf" target="_blank">&#127468;&#127463; English Version</a>
+            <a href="resume/Data%20Engr_CV_Eng.pdf" target="_blank">&#127468;&#127463; English Version</a>
             <a href="resume/Data%20Engr_CV_Fr.pdf" target="_blank">&#127467;&#127479; French Version</a>
           </div>
         </div>
