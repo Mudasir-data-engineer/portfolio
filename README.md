@@ -1,6 +1,6 @@
 # Mudasir Shafiq - Data Engineering Portfolio
 
-Portfolio of production-oriented data engineering, analytics, cloud, AI automation, and platform projects by **Mudasir Shafiq**, a Paris-based Lead Data Engineer.
+Portfolio of production-oriented data engineering, analytics, cloud, AI automation, and platform projects by **Mudasir Shafiq**, a Paris-based Data Engineer.
 
 **Live portfolio:** [mudasir-data-engineer.github.io/portfolio](https://mudasir-data-engineer.github.io/portfolio/)
 
@@ -11,7 +11,7 @@ The website brings together:
 - 12 end-to-end data engineering and platform case studies
 - 5 AI agent and workflow automation case studies
 - 11 analytics, dashboard, and reporting examples
-- English and French Lead Data Engineer CVs
+- English and French Data Engineer CVs
 - Skills, professional profile, certifications, and contact links
 
 Each project is supported by a downloadable PDF case study describing the business problem, architecture, implementation, technology choices, controls, and outcome.
@@ -47,8 +47,8 @@ portfolio/
 |-- index.html                     # Single-page portfolio website
 |-- case-studies/                  # Project case studies and analytical reports
 |-- resume/
-|   |-- Data Engr_CV_Eng.pdf       # English Lead Data Engineer CV
-|   `-- Data Engr_CV_Fr.pdf        # French Lead Data Engineer CV
+|   |-- Data Engr_CV_Eng.pdf       # English Data Engineer CV
+|   `-- Data Engr_CV_Fr.pdf        # French Data Engineer CV
 |-- assets/                        # Static site assets
 |-- .github/workflows/
 |   `-- deploy-pages.yml           # GitHub Pages deployment workflow
